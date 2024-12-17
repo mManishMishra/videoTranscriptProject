@@ -1,0 +1,14 @@
+# Node.js dependencies
+backend/node_modules/
+videoTranscript/node_modules/
+
+# Environment files
+backend/.env
+videoTranscript/.env
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
