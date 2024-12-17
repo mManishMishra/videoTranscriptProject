@@ -20,7 +20,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, onView, onEdit, onDelete }) =
     <div className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg p-4 shadow-lg flex items-center gap-4 relative transition-all duration-300">
       {/* User Details */}
       <img
-        src={user.profileImage || placeholderImage} // Use placeholder if no profile image
+        src={user.profileImage || placeholderImage} 
         alt={`${user.username}'s profile`}
         className="w-16 h-16 rounded-full object-cover"
       />

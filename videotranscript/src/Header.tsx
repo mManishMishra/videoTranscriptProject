@@ -1,15 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { useTheme } from './context/ThemeContext';
-import { AuthContext } from './context/AuthContext'; // Import your AuthContext
+import { AuthContext } from './context/AuthContext';
 import { FaBars, FaMoon, FaSignOutAlt, FaSun } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { darkMode, toggleDarkMode } = useTheme();
-  const {username, role, logout } = useContext(AuthContext); // Access user and logout from AuthContext
+  const {username, role, logout } = useContext(AuthContext);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const navigate = useNavigate(); // For navigation after logout
+  const navigate = useNavigate(); 
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -20,14 +20,14 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    logout(); // Call the logout function from AuthContext
-    navigate('/login'); // Redirect to login page
+    logout(); 
+    navigate('/login'); 
   };
 
   return (
     <div>
       <header className="p-2 bg-gray-100 dark:bg-gray-800 shadow flex justify-between items-center transition-all duration-500">
-        {/* Left Side - Profile */}
+       
         <div className="flex items-center space-x-4">
           {username ? (
             <div className="relative">
@@ -36,7 +36,7 @@ const Header = () => {
                 className="w-10 h-10 rounded-full overflow-hidden"
               >
                 <img
-                  src="https://via.placeholder.com/150" // Replace with actual profile image URL if available
+                  src="https://via.placeholder.com/150" 
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />

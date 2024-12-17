@@ -13,12 +13,12 @@ interface User {
 const UserManagement: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showForm, setShowForm] = useState(false); // State to toggle the form
-  const [newUser, setNewUser] = useState({ username: "", email: "", password:"",role: "" }); // State for new user details
+  const [showForm, setShowForm] = useState(false);
+  const [newUser, setNewUser] = useState({ username: "", email: "", password:"",role: "" });
   const navigate = useNavigate();
   const fetchUsers = async () => {
     try {
-      const token = localStorage.getItem("token"); // Retrieve JWT token from storage
+      const token = localStorage.getItem("token"); 
       const response = await fetch("http://localhost:5000/users", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -51,9 +51,9 @@ const UserManagement: React.FC = () => {
       });
       if (response.ok) {
         const createdUser = await response.json();
-        setUsers([...users, createdUser]); // Add new user to the list
-        setShowForm(false); // Hide form after successful creation
-        setNewUser({ username: "", email: "", password:"",role: "" }); // Reset form fields
+        setUsers([...users, createdUser]); 
+        setShowForm(false); 
+        setNewUser({ username: "", email: "", password:"",role: "" }); 
       } else {
         console.error("Failed to create user");
       }
@@ -67,11 +67,11 @@ const UserManagement: React.FC = () => {
   }, []);
 
   const handleView = (id: string) => {
-    navigate(`/user-profile/${id}`); // Redirect to user profile
+    navigate(`/user-profile/${id}`); 
   };
 
   const handleEdit = (id: string) => {
-    navigate(`/edit-user/${id}`); // Redirect to edit user form
+    navigate(`/edit-user/${id}`);
   };
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
@@ -111,7 +111,7 @@ const UserManagement: React.FC = () => {
         </div>
       </header>
 
-      {/* Form to create a new user */}
+      
       {showForm && (
         <form onSubmit={handleCreateUser} className="bg-white p-4 shadow rounded mb-4">
           <div className="mb-2">

@@ -6,15 +6,15 @@ import axios from "axios";
 interface AuthContextProps {
   token: string | null;
   role: string | null;
-  username: string | null; // Add username
-  login: (token: string, role: string, username: string) => void; // Update login signature
+  username: string | null;
+  login: (token: string, role: string, username: string) => void;
   logout: () => void;
 }
 
 export const AuthContext = createContext<AuthContextProps>({
   token: null,
   role: null,
-  username: null, // Initialize username as null
+  username: null, 
   login: () => {},
   logout: () => {},
 });
@@ -22,24 +22,24 @@ export const AuthContext = createContext<AuthContextProps>({
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
   const [role, setRole] = useState<string | null>(localStorage.getItem("role"));
-  const [username, setUsername] = useState<string | null>(localStorage.getItem("username")); // Add username state
+  const [username, setUsername] = useState<string | null>(localStorage.getItem("username"));
 
   const login = (token: string, role: string, username: string) => {
     setToken(token);
     setRole(role);
-    setUsername(username); // Set username
+    setUsername(username); 
     localStorage.setItem("token", token);
     localStorage.setItem("role", role);
-    localStorage.setItem("username", username); // Persist username
+    localStorage.setItem("username", username);
   };
 
   const logout = () => {
     setToken(null);
     setRole(null);
-    setUsername(null); // Clear username
+    setUsername(null); 
     localStorage.removeItem("token");
     localStorage.removeItem("role");
-    localStorage.removeItem("username"); // Remove username from storage
+    localStorage.removeItem("username"); 
   };
 
   return (

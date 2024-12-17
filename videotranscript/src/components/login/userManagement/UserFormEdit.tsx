@@ -20,7 +20,7 @@ const EditUser: React.FC = () => {
       if (response.ok) {
         const data = await response.json();
         setUser(data);
-        setPreviewImage(data.profileImage); // Set the initial preview image
+        setPreviewImage(data.profileImage);
       } else {
         console.error("Failed to fetch user details");
       }
@@ -89,7 +89,7 @@ const EditUser: React.FC = () => {
     <div className="p-6 bg-gray-100 dark:bg-gray-800">
       <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Edit User</h1>
       <form onSubmit={handleEditUser} className="mt-6 bg-white dark:bg-gray-900 shadow-md rounded-lg p-6 flex">
-        {/* Profile Image Preview on the left */}
+        
         <div className="w-1/3 mr-6">
           {previewImage ? (
             <img
@@ -104,7 +104,6 @@ const EditUser: React.FC = () => {
           )}
         </div>
 
-        {/* Image input field on the right */}
         <div className="w-2/3">
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Choose Image</label>
